@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ function App() {
   useScrollAnimation();
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ParallaxProvider>
         <div className="app">
           <Navbar />
@@ -18,7 +18,7 @@ function App() {
           <Footer />
         </div>
       </ParallaxProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
