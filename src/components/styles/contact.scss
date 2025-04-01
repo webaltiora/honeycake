@@ -1,0 +1,312 @@
+.contact {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  perspective: 1000px;
+  overflow: hidden;
+
+  // Custom geometric pattern
+  .geometric-pattern {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 30px 30px,
+      linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 30px 30px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: patternFloat 20s linear infinite;
+  }
+
+  .contact-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.7)
+    );
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-content {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 4rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+      transform: translateX(-100%);
+      animation: lightPass 3s infinite;
+    }
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    transform: translateZ(30px);
+
+    h2 {
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, #ffd700, #ff9000);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .decorative-line {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffd700, transparent);
+      margin: 1.5rem auto;
+      position: relative;
+      animation: glowPulse 2s infinite;
+
+      .glow-point {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #ffd700;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 20px #ffd700;
+      }
+    }
+
+    p {
+      color: #ddd;
+      font-size: 1.2rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    transform-style: preserve-3d;
+
+    .shop-image-wrapper {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .shop-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      transform-style: preserve-3d;
+      
+      img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(0, 0, 0, 0.4)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        .image-overlay {
+          opacity: 1;
+        }
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      transform-style: preserve-3d;
+
+      .info-item {
+        position: relative;
+        padding: .4rem 2rem; 
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 215, 0, 0.1),
+            transparent
+          );
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .icon-wrapper {
+          width: 50px;
+          height: 50px;
+          margin-top: 10px;
+          background: rgba(255, 215, 0, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translateZ(20px);
+
+          i {
+            font-size: 1.8rem;
+            color: #ffd700;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+          }
+        }
+
+        h3 {
+          color: #fff;
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+          transform: translateZ(15px);
+        }
+
+        p {
+          color: #ddd;
+          font-size: 1.1rem;
+          transform: translateZ(10px);
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.08);
+          box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.2),
+            0 0 0 1px rgba(255, 255, 255, 0.1);
+
+          &::before {
+            opacity: 1;
+          }
+
+          .icon-wrapper {
+            transform: translateZ(30px);
+            i {
+              animation: iconPulse 1s infinite;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes lightPass {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes patternFloat {
+  0% { background-position: 0 0; }
+  100% { background-position: 30px 30px; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .contact {
+    padding: 4rem 1.5rem;
+    
+    .contact-content {
+      padding: 3rem;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 3rem 1rem;
+
+    .contact-content {
+      padding: 2rem;
+    }
+
+    .contact-header {
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .shop-image img {
+      height: 300px;
+    }
+
+    .contact-info {
+      gap: 2rem;
+    }
+  }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .contact {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}

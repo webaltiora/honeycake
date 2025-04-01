@@ -1,0 +1,158 @@
+// src/components/styles/global.scss
+
+// Variables
+$primary-color: #f4a460;
+$secondary-color: #8b4513;
+$text-color: #333;
+$light-bg: #fff8f0;
+$honey-gold: #ffa726;
+$transition: all 0.3s ease;
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes rotate3D {
+  from { transform: perspective(1000px) rotateY(0deg); }
+  to { transform: perspective(1000px) rotateY(360deg); }
+}
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: $light-bg;
+}
+
+.app {
+  perspective: 1000px;
+}
+
+.section {
+  padding: 80px 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  margin: 5px;
+  border: 2px solid rgba(255, 215, 0, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, 
+    #ffd700,
+    #ffcc00,
+    #ffd700,
+    #ffe666
+  );
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-clip: padding-box;
+  box-shadow: 
+    0 0 5px rgba(255, 215, 0, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, 
+    #ffe666,
+    #ffd700,
+    #ffcc00,
+    #ffd700
+  );
+  box-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Scrollbar Corner */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffd700 rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Add smooth scrolling to the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Style for dark-themed websites */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.05);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Optional: Add scrollbar hover effect to elements with custom scrollbars */
+.custom-scroll {
+  scrollbar-gutter: stable;
+}
+
+.custom-scroll:hover::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, 
+    #ffe666,
+    #ffd700,
+    #ffcc00,
+    #ffd700
+  );
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+}

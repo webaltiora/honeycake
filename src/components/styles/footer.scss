@@ -1,0 +1,122 @@
+footer {
+  background: linear-gradient(135deg, #ffd700, #ff9000, #ffb347);
+  color: #fff;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.brand-section {
+  text-align: center;
+  padding: 1rem;
+
+  h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  a {
+    color: #fff;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      background: #fff;
+      color: #ffd700;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+  p {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .brand-section {
+    h3 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .social-links {
+    gap: 1.5rem;
+
+    a {
+      width: 45px;
+      height: 45px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Optional: Add a subtle animation to the background
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+footer {
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+}
